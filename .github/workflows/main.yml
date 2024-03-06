@@ -20,10 +20,6 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-        
-    - name: installation des dependances
-      run: |
-        pip install -r requirements.txt
 
     - name: exécution des tests
       run: |
