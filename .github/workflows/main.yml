@@ -1,0 +1,27 @@
+name : TpProjet
+
+#Nous voulons que l'outil d'integration continu se declenche lorsqu'on fait un push sur la branche master
+on:
+  push:
+    branches: ["master"]
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+
+    steps:
+    # Cloner mon projet sur le systeme ubuntu
+    - uses: actions/checkout@v3
+    
+    - name: installation de python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+
+    - name: exécution des tests
+      run: |
+        pytest test.py
+      
